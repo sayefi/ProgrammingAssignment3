@@ -22,3 +22,24 @@ x<-best("NY","hert failure")
 x
 
 
+source("rankhospital.r")
+x<-rankhospital("TX","heart failure",4)
+x
+
+x<-rankhospital("MD","heart attack","worst")
+x
+
+x<-rankhospital("MN","heart attack",5000)
+x
+
+hosData<-read.csv("outcome-of-care-measures.csv",
+                  na.strings = "Not Available", colClasses = "character")
+
+
+
+
+
+
+length(hosData)
+rows(hosData)
+nrow(hosData)

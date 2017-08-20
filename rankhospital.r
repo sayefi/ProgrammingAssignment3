@@ -1,6 +1,6 @@
-## Fuction to return best hospital for particular disease 
+## Fuction to rank hospitals for particular disease 
 
-best<-function(state,outcome){
+rankhospital<-function(state,outcome,num="best"){
      hosData<-read.csv("outcome-of-care-measures.csv",
                        na.strings = "Not Available", colClasses = "character")
      
@@ -25,12 +25,21 @@ best<-function(state,outcome){
      
      hosData<-hosData[,impColumns]
      hosData[,2]<-as.numeric(hosData[,2])
-   
+     
+     hosData<-hosData[complete.cases(hosData),]
+     
      hosData<-hosData[order(hosData[,2],hosData[,1]),]
      
      head(hosData)
      
-     output<-hosData[1,1]
+     if(num=="best"){
+          output<-hosData[1,1]   
+     } else if(num=="worst") {
+          output<-hosData[nrow(hosData),1]
+     } else if(num>nrow(hosData)) {
+          output<-"NA"
+     } else output<-hosData[num,1]
+     
      
      
 }
