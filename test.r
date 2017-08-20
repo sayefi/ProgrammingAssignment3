@@ -37,8 +37,12 @@ hosData<-read.csv("outcome-of-care-measures.csv",
 
 
 
+source("rankall.r")
 
+head(rankall("heart attack",20),10)
+tail(rankall("pneumonia","worst"),3)
 
+tail(rankall("heart failure","worst"),10)
 
 length(hosData)
 rows(hosData)
