@@ -44,6 +44,41 @@ tail(rankall("pneumonia","worst"),3)
 
 tail(rankall("heart failure","worst"),10)
 
-length(hosData)
-rows(hosData)
-nrow(hosData)
+
+x<-best("SC", "heart attack")
+x
+
+x<-best("NY", "pneumonia")
+x
+
+x<-best("AK", "pneumonia")
+x
+
+x<-rankhospital("NC", "heart attack", "worst")
+x
+
+x<-rankhospital("WA", "heart attack", 7)
+x
+
+x<-rankhospital("TX", "pneumonia", 10)
+x
+
+x<-rankhospital("NY", "heart attack", 7)
+x
+
+r <- rankall("heart attack", 4)
+
+as.character(subset(r, state == "HI")$hospital)
+
+r <- rankall("pneumonia", "worst")
+as.character(subset(r, state == "NJ")$hospital)
+
+r <- rankall("heart failure", 10)
+as.character(subset(r, state == "NV")$hospital)
+
+
+
+
+# length(hosData)
+# rows(hosData)
+# nrow(hosData)
